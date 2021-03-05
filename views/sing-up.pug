@@ -1,5 +1,27 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title} form
+  p Welcome to Sing up form
+  form(method='POST' action='')
+    div
+      label(for='fistName') First name
+      input#fistName(type='text' name='firstName' placeholder='Put your first name here' value=(newUser ? newUser.firstName : ''))
+    div
+      label(for='lastName') Last name
+      input#lastName(type='text' name='lastName' placeholder='Put your last name here' value=(newUser ? newUser.lastName : ''))
+    div
+      label(for='email') Email
+      input#email(type='email' name='email' placeholder='Put your email here' value=(newUser ? newUser.email : ''))
+    div
+      label(for='password') Password
+      input#password(type='password' name='password' placeholder='Put your password here' value=(newUser ? newUser.password : ''))
+    div
+      label(for='passwordConfrim') Confrim password
+      input#passwordConfrim(type='password' name='passwordConfrim' placeholder='Confrime youur password')
+    button(type='submit') Submit
+
+    ul
+      if errors
+          for error in errors
+            li!= error.msg
+      

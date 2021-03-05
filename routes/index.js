@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 //GET sing-up form
-router.get('/sing-up', user_Controller.add_user);
+router.get('/sing-up', user_Controller.add_user_get);
+router.post('/sing-up', user_Controller.add_user_post);
 
 module.exports = router;
