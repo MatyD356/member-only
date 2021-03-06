@@ -51,3 +51,8 @@ exports.add_user_post = [
     }
   }
 ]
+
+//handle log-in GET
+exports.log_user_GET = (req, res) => {
+  res.render('log-in')
+}
