@@ -1,8 +1,6 @@
-const User = require('../models/User')
-
-const async = require('async')
-const bcrypt = require('bcrypt')
 const { body, validationResult } = require('express-validator')
+const User = require('../models/User')
+const bcrypt = require('bcrypt')
 
 //display sing-up new user form on GET
 exports.add_user_get = (req, res) => {
@@ -55,4 +53,8 @@ exports.add_user_post = [
 //handle log-in GET
 exports.log_user_GET = (req, res) => {
   res.render('log-in')
+}
+//handle log-in POST
+exports.log_user_POST = (req, res) => {
+  console.log('here');
 }

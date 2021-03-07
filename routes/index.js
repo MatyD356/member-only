@@ -14,5 +14,6 @@ router.post('/sing-up', user_Controller.add_user_post);
 
 //log-in form
 router.get('/log-in', user_Controller.log_user_GET)
+router.post('/log-in', user_Controller.log_user_POST)
 
 module.exports = router;
