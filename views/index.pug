@@ -1,10 +1,9 @@
 extends layout
 
 block content
-  if user
+  h1 Welcome to #{title}
+  if currentUser
     p logged in
-  h1= title
-  p Welcome to #{title}
   p 
     a(href='./sing-up') sing-up
   p 

@@ -11,11 +11,15 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
-    "express": "~4.16.1",
+    "express": "^4.16.4",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.1",
     "express-validator": "^6.10.0",
     "http-errors": "~1.6.3",
     "mongoose": "^5.11.18",
     "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.2"
   }
 }

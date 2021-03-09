@@ -4,9 +4,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const flash = require('express-flash');
 const mongoose = require('mongoose');
-
 var indexRouter = require('./routes/index');
+const passport = require('passport');
+const session = require('express-session')
+const initializePassport = require('./passport-config');
+const User = require('./models/User');
 
 var app = express();
 
@@ -16,6 +20,26 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'mongoDB connection error:'))
 
+//pasport js setup
+initializePassport(
+  passport,
+  email => User.findOne({ 'email': email }),
+  async id => await User.findById(id)
+);
+app.use(flash());
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+
+//provading user middleware
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

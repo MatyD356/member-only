@@ -11,6 +11,5 @@ block content
       input#password(type='password' name='password')
     button(type='submit') Submit
     ul
-      if errors
-        for error in errors
-          li!= error.msg
+    if (messages.error)
+      p #{messages.error}

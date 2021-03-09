@@ -1,6 +1,7 @@
 const { body, validationResult } = require('express-validator')
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
+const passport = require('passport')
 
 //display sing-up new user form on GET
 exports.add_user_get = (req, res) => {
@@ -55,6 +56,8 @@ exports.log_user_GET = (req, res) => {
   res.render('log-in')
 }
 //handle log-in POST
-exports.log_user_POST = (req, res) => {
-  console.log('here');
-}
+exports.log_user_POST = passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/log-in',
+  failureFlash: true
+})
