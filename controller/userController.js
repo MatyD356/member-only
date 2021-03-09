@@ -61,3 +61,8 @@ exports.log_user_POST = passport.authenticate('local', {
   failureRedirect: '/log-in',
   failureFlash: true
 })
+//handle user log-out
+exports.log_out_user = (req, res) => {
+  req.logout();
+  res.redirect('/log-in')
+}
