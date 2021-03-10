@@ -4,4 +4,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    div
+      h1(class='text-blue-900') Welcome to 
+      nav
+        ul
+          if !currentUser
+            li 
+              a(href='./sing-up') sing-up
+            li
+              a(href='./log-in') log-in
+          else
+            li 
+              a(href='./log-out') log-out
+
     block content
