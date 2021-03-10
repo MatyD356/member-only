@@ -3,9 +3,10 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    div(class='bg-gradient-to-r from-green-400 to-blue-500 flex justify-between items-center text-white')
-      h1(class='p-4 text-4xl') Member-only
+    meta( name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1')
+  body(class='h-screen flex flex-col')
+    div(class='bg-gradient-to-r from-green-400 to-blue-500 flex flex-col md:flex-row md:justify-between items-center text-white')
+      h1(class='p-4 text-4xl') Members-only
       nav
         ul(class='flex mr-4 text-xl')
           if !currentUser
@@ -16,5 +17,5 @@ html
           else
             li(class='m-2 border-2 border-white rounded-xl') 
               a(class='inline-block p-2' href='./log-out') log-out
-
-    block content
+    div(class='flex-auto flex flex-col bg-blue-100 items-center justify-center')
+      block content

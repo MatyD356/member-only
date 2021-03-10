@@ -1,15 +1,16 @@
 extends layout
 
 block content
-  p Welcome to Sing up form
-  form(method='POST' action='')
-    div
-      label(for='email') Email
-      input#email(type='text' name='email' placeholder='Put your email here')
-    div
-      label(for='password') Password
-      input#password(type='password' name='password')
-    button(type='submit') Submit
-    ul
-    if (messages.error)
-      p #{messages.error}
+  div
+    p Log in
+    form(method='POST' action='')
+      div
+        label(for='email') 
+        input#email(type='text' name='email' placeholder='Email')
+      div
+        label(for='password') 
+        input#password(type='password' name='password' placeholder='Password')
+      button(type='submit') Submit
+      ul
+      if (messages.error)
+        p #{messages.error}
