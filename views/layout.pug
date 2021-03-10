@@ -4,17 +4,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    div
-      h1(class='text-blue-900') Welcome to 
+    div(class='bg-gradient-to-r from-green-400 to-blue-500 flex justify-between items-center text-white')
+      h1(class='p-4 text-4xl') Member-only
       nav
-        ul
+        ul(class='flex mr-4 text-xl')
           if !currentUser
-            li 
-              a(href='./sing-up') sing-up
-            li
-              a(href='./log-in') log-in
+            li(class='m-2 border-2 border-white rounded-xl') 
+              a(class='inline-block p-2' href='./sing-up') sing-up
+            li(class='m-2 border-2 border-white rounded-xl')
+              a(class='inline-block p-2' href='./log-in') log-in
           else
-            li 
-              a(href='./log-out') log-out
+            li(class='m-2 border-2 border-white rounded-xl') 
+              a(class='inline-block p-2' href='./log-out') log-out
 
     block content
