@@ -1,16 +1,15 @@
 extends layout
 
 block content
-  div
-    p Log in
+  div(class='shadow-lg rounded-md bg-white')
+    h2(class='p-4 text-2xl font-black text-center') Log in
     form(method='POST' action='')
-      div
+      div(class='p-4')
         label(for='email') 
-        input#email(type='text' name='email' placeholder='Email')
-      div
+        input#email(class='bg-gray-100 p-2 rounded-md' type='text' name='email' placeholder='Email')
+      div(class='p-4')
         label(for='password') 
-        input#password(type='password' name='password' placeholder='Password')
-      button(type='submit') Submit
-      ul
+        input#password(class='bg-gray-100 p-2 rounded-md' type='password' name='password' placeholder='Password')
       if (messages.error)
-        p #{messages.error}
+        p(class='ml-4 text-red-400') #{messages.error}
+      button(type='submit' class='p-4 py-2 m-4 bg-blue-500 text-white rounded-md font-black') Submit
