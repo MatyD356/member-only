@@ -17,11 +17,12 @@ block content
         input#password(class='m-2 p-2 bg-gray-100 rounded-md' type='password' name='password' placeholder='Password' value=(newUser ? newUser.password : ''))
         label(for='passwordConfrim')
         input#passwordConfrim(class='m-2 p-2 bg-gray-100 rounded-md' type='password' name='passwordConfrim' placeholder='Confrim password')
-      div(class='flex justify-center')
-        button(type='submit' class='p-2  m-2 bg-blue-500 w-11/12 text-white rounded-md font-black') Submit
 
       ul(class='text-center text-red-400 mb-2')
         if errors
             for error in errors
               li(class='m-2')!= error.msg
+      
+      div(class='flex justify-center')
+        button(type='submit' class='p-2  m-2 bg-blue-500 w-11/12 text-white rounded-md font-black') Submit
         
