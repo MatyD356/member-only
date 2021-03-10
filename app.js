@@ -23,7 +23,7 @@ db.on('error', console.error.bind(console, 'mongoDB connection error:'))
 //pasport js setup
 initializePassport(
   passport,
-  email => User.findOne({ 'email': email }),
+  async email => await User.findOne({ 'email': email }),
   async id => await User.findById(id)
 );
 app.use(flash());
