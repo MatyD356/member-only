@@ -21,7 +21,7 @@ exports.add_user_post = [
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
 
     if (!errors.isEmpty()) {
@@ -38,7 +38,8 @@ exports.add_user_post = [
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
-                password: hashedPassword
+                password: hashedPassword,
+                membership: 'user',
               })
               userToSave.save((err) => {
                 if (err) return next(err)
