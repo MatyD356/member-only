@@ -5,18 +5,19 @@ html
     meta( name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body(class='h-screen flex flex-col')
-    div(class='bg-blue-500 flex flex-col md:flex-row md:justify-between items-center text-white')
-      h1(class='p-4 text-4xl') Members-only
-      nav
-        ul(class='flex mr-4 text-lg')
-          if !currentUser
-            li(class='m-2 border-2 border-white rounded-lg') 
-              a(class='inline-block p-2 px-4 bg-white text-blue-500 hover:bg-transparent hover:text-white transition duration-300' href='./sing-up') sing-up
-            li(class='m-2 border-2 border-white rounded-lg')
-              a(class='inline-block p-2 px-4 bg-white text-blue-500 hover:bg-transparent hover:text-white transition duration-300' href='./log-in') log-in
-          else
-            li(class='m-2 border-2 border-white rounded-lg') 
-              a(class='inline-block p-2 bg-white text-blue-500 hover:bg-transparent transition duration-300' href='./log-out') log-out
+    div(class='bg-blue-500 flex flex-col justify-center items-center')
+      div(class='flex flex-col md:flex-row md:justify-between items-center text-white w-11/12 ')
+        h1(class='p-4 text-4xl font-black') Members-only
+        nav
+          ul(class='flex text-lg')
+            if !currentUser
+              li(class=' border-2 border-white rounded-lg mr-2') 
+                a(class=' inline-block p-2 px-4 bg-white text-blue-500 hover:bg-transparent hover:text-white transition duration-300' href='./sing-up') sing-up
+              li(class=' border-2 border-white rounded-lg')
+                a(class='inline-block p-2 px-4 bg-white text-blue-500 hover:bg-transparent hover:text-white transition duration-300' href='./log-in') log-in
+            else
+              li(class='m-2 border-2 border-white rounded-lg') 
+                a(class='inline-block p-2 bg-white text-blue-500 hover:bg-transparent transition duration-300' href='./log-out') log-out
     div(class='flex-auto flex flex-col bg-blue-50 items-center justify-center')
       block content
     script 

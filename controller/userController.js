@@ -3,6 +3,9 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 
+
+
+
 //display sing-up new user form on GET
 exports.add_user_get = (req, res) => {
   res.render('sing-up')
@@ -22,6 +25,7 @@ exports.add_user_post = [
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
+      membership: 'user'
     })
 
     if (!errors.isEmpty()) {

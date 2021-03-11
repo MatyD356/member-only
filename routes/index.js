@@ -14,6 +14,7 @@ const checkNotAuth = (req, res, next) => {
 router.get('/', checkAuth, (req, res) => {
   res.render('index', { title: 'Express' });
 });
+//router.post('/', checkAuth, user_Controller.update_user_POST);
 
 //sing-up form
 router.get('/sing-up', checkNotAuth, user_Controller.add_user_get);

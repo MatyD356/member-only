@@ -2,7 +2,14 @@ extends layout
 
 block content
   if currentUser
-    p welcome in da club
-    p #{currentUser.firstName}
+    div(class='bg-white rounded-md shadow-md  p-4 md:flex justify-between items-center w-11/12 m-4')
+      div(class='flex text-2xl flex-col justify-center items-center mb-2 md:mb-0')
+        h2(class='font-black ') #{currentUser.firstName} #{currentUser.lastName} 
+        p Status: #{currentUser.membership}
+      div
+        form(action="", method="post" class='text-center') 
+          input#membershipPassword(class='bg-gray-100 p-2 rounded-md w-full md:w-auto' type='password' placeholder='membership upgrade password')
+          button(type='sumbit' class='my-2 w-full  p-2 bg-blue-500 text-white rounded-md md:w-auto md:ml-4') Upgarde
+    div(class='bg-white rounded-md shadow-md  p-4 flex justify-between items-center w-11/12')
   else 
     p no user
