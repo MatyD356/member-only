@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const user_Controller = require('../controller/userController')
+const user_Controller = require('../controller/userController');
+const message_Controller = require('../controller/messageController');
 const checkAuth = (req, res, next) => {
   if (req.isAuthenticated()) return next()
   res.redirect('log-in')
@@ -24,5 +25,8 @@ router.post('/log-in', checkNotAuth, user_Controller.log_user_POST)
 
 //logout
 router.get('/log-out', user_Controller.log_out_user)
+
+//message
+router.get('/message/new', checkAuth, message_Controller.add_message_GET)
 
 module.exports = router;

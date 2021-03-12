@@ -1,0 +1,8 @@
+extends layout 
+
+block content
+  div
+    form(action='' method='POST')
+      input#title(type='text' name='title' placeholder='Title')
+      textarea#body(name='body', cols="100", rows="15")
+      button(type='submit') Add  
