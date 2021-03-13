@@ -7,6 +7,7 @@ const passport = require('passport')
 exports.index_GET = (req, res) => {
   res.render('index');
 }
+
 //home page update POST
 exports.update_user_POST = [
   body('membershipPassword').trim().escape(),

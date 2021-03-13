@@ -12,6 +12,7 @@ block content
           button(type='sumbit' class='my-2 w-full  p-2 bg-blue-500 text-white rounded-md md:w-auto md:ml-4') Upgarde
     div(class='bg-white rounded-md shadow-md  p-4 flex justify-between items-center w-11/12')
       p Message count
-      a(href='./message/new' class='  p-2 bg-blue-500 text-white rounded-md md:w-auto md:ml-4') Add message
+      if (currentUser.membership !== 'user')
+        a(href='./message/new' class='  p-2 bg-blue-500 text-white rounded-md md:w-auto md:ml-4') Add message
   else 
     p no user
