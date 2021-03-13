@@ -4,5 +4,9 @@ block content
   div(class='p-6 bg-white shadow-lg rounded-md md:w-1/3 h-5/6')
     form(action='' method='POST' class='flex flex-col h-full ')
       input#title(type='text' name='title' placeholder='Title' class='bg-gray-100 p-2 mb-2 rounded-md')
-      textarea#body(name='body' class='bg-gray-100 p-2 mb-2 rounded-md  h-full')
+      textarea#messageBody(name='messageBody' class='bg-gray-100 p-2 mb-2 rounded-md  h-full')
+      ul(class='text-center text-red-400 mb-2')
+        if errors
+          for error in errors
+            li(class='m-2')!= error.msg
       button(type='submit' class='p-2 bg-blue-500 rounded-md font-black text-2xl text-white') Add  

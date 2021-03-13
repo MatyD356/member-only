@@ -10,9 +10,16 @@ block content
         form(action="" method="POST" class='text-center') 
           input#membershipPassword(class='bg-gray-100 p-2 rounded-md w-full md:w-auto' name='membershipPassword' type='password' placeholder='membership upgrade password')
           button(type='sumbit' class='my-2 w-full  p-2 bg-blue-500 text-white rounded-md md:w-auto md:ml-4') Upgarde
+    if (currentUser.membership !== 'user')
     div(class='bg-white rounded-md shadow-md  p-4 flex justify-between items-center w-11/12')
-      p Message count
-      if (currentUser.membership !== 'user')
-        a(href='./message/new' class='  p-2 bg-blue-500 text-white rounded-md md:w-auto md:ml-4') Add message
+        a(href='./message/new' class='p-4 bg-blue-500 text-white rounded-md md:w-full text-center font-black text-xl ') Add message
+    if messages
+    div(class='w-11/12')
+      each message in messages
+          div(class='bg-white rounded-md shadow-xl my-4 p-4')
+            p(class='bg-blue-500 p-2 rounded-xl text-center font-600 text-white text-xl ') #{message.title} 
+            p #{message.body}
+            if (currentUser.membership !== 'user')
+            p #{message.author.firstName} #{message.author.lastName}
   else 
     p no user

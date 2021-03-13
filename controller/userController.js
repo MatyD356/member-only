@@ -1,11 +1,14 @@
-const { body, validationResult } = require('express-validator')
-const User = require('../models/User')
-const bcrypt = require('bcrypt')
-const passport = require('passport')
-
+const { body, validationResult } = require('express-validator');
+const User = require('../models/User');
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const Message = require('../models/Message');
 //home page GET
-exports.index_GET = (req, res) => {
-  res.render('index');
+exports.index_GET = (req, res, next) => {
+  Message.find({}).populate('author').exec((err, messages_list) => {
+    if (err) return next(err);
+    res.render('index', { messages: messages_list });
+  })
 }
 
 //home page update POST
