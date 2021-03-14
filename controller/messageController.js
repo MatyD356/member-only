@@ -8,7 +8,7 @@ exports.add_message_GET = (req, res, next) => {
 //add new message POST
 exports.add_message_POST = [
   body('title', 'Add title').trim().isLength({ min: 1 }).escape(),
-  body('messageBody', 'Add message').trim().isLength({ min: 1, max: 500 }).escape(),
+  body('messageBody', 'Add message').trim().isLength({ min: 1, max: 1000 }).escape(),
   (req, res, next) => {
     const errors = validationResult(req)
 
