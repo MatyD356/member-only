@@ -9,8 +9,11 @@ const MessageSchema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' }
 })
 
-MessageSchema.virtual('date').get(() => {
-  //TO DO implement better date formating
-})
+MessageSchema
+  .virtual('date')
+  .get(function () {
+    //TO DO implement better date formating
+    return `${this.timeStamp.toLocaleString()}`
+  })
 
 module.exports = mongoose.model('Message', MessageSchema)

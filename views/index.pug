@@ -14,17 +14,24 @@ block content
     div(class='bg-white rounded-md shadow-md  p-4 flex justify-between items-center w-11/12')
         a(href='./message/new' class='p-4 bg-blue-500 text-white rounded-md md:w-full text-center font-black text-xl ') Add message
     if messages
-    div(class='w-11/12 h-full grid lg:grid-cols-3  gap-4 lg:auto-cols-max overflow:scroll')
+    div(class='w-11/12 h-full flex flex-col lg:flex-wrap lg:items-center ')
       each message in messages
-          div(class='bg-white rounded-md shadow-xl my-4 p-4')
-            p(class='bg-blue-500 p-2 rounded-xl text-center font-600 text-white text-xl ') #{message.title} 
-            p #{message.body}
-            if (currentUser.membership !== 'user')
-            p #{message.author.firstName} #{message.author.lastName}
+          div(class='bg-white rounded-md shadow-xl p-4 my-4 flex flex-col lg:w-1/5  mx-2 ')
+            div(class='flex justify-between items-center mb-4')
+              p(class='bg-blue-500 p-2 rounded-md text-center font-600 text-white text-xl w-max') #{message.title} 
+            div(class='flex flex-col justify-between ')
+              p(class='mb-4') #{message.body}
+              if (currentUser.membership !== 'user')
+                p(class='text-blue-500 text-sm text-right') #{message.author.firstName} #{message.author.lastName},#{message.date}
+              else
+                p(class='text-blue-500 text-sm text-right')  author, #{message.date}
   else 
     if messages
-    div(class='w-11/12 h-full grid lg:grid-cols-3  gap-4 lg:auto-cols-max overflow:scroll')
+    div(class='w-11/12 h-full lg:flex lg:flex-col lg:flex-wrap items-center lg:-ml-4')
       each message in messages
-          div(class='bg-white rounded-md shadow-xl my-4 p-4')
-            p(class='bg-blue-500 p-2 rounded-xl text-center font-600 text-white text-xl ') #{message.title} 
-            p #{message.body}
+          div(class='bg-white rounded-md shadow-xl p-4 my-4 flex flex-col lg:w-1/3  mx-2 ')
+            div(class='flex justify-between items-center mb-4')
+              p(class='bg-blue-500 p-2 rounded-md text-center font-600 text-white text-xl w-max') #{message.title} 
+            div(class='flex flex-col justify-between ')
+              p(class='mb-4') #{message.body}
+              p(class='text-blue-500 text-sm text-right')  author, #{message.date}
