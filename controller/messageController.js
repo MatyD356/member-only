@@ -8,7 +8,7 @@ exports.add_message_GET = (req, res, next) => {
 //add new message POST
 exports.add_message_POST = [
   body('title', 'Add title').trim().isLength({ min: 1 }).escape(),
-  body('messageBody', 'Add message').trim().isLength({ min: 1, max: 1000 }).escape(),
+  body('messageBody', 'Message must have betwwen 1 and 1000 characters').trim().isLength({ min: 1, max: 1000 }),
   (req, res, next) => {
     const errors = validationResult(req)
 
@@ -27,3 +27,17 @@ exports.add_message_POST = [
     }
   }
 ]
+exports.delete_message_GET = (req, res, next) => {
+  Message.findById(req.params.id)
+    .populate('author')
+    .exec((err, message) => {
+      if (err) return next(err)
+      res.render('message_delete', { message })
+    })
+}
+exports.delete_message_POST = (req, res, next) => {
+  Message.findByIdAndDelete({ _id: req.params.id }).exec(function (err) {
+    if (err) return next(err)
+    res.redirect('/')
+  })
+}

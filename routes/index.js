@@ -30,4 +30,8 @@ router.get('/log-out', user_Controller.log_out_user);
 router.get('/message/new', checkAuth, message_Controller.add_message_GET);
 router.post('/message/new', checkAuth, message_Controller.add_message_POST);
 
+//message delete
+router.get('/message/:id/delete', checkAuth, message_Controller.delete_message_GET);
+router.post('/message/:id/delete', checkAuth, message_Controller.delete_message_POST);
+
 module.exports = router;

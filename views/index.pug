@@ -10,7 +10,6 @@ block content
         form(action="" method="POST" class='text-center') 
           input#membershipPassword(class='bg-gray-100 p-2 rounded-md w-full md:w-auto' name='membershipPassword' type='password' placeholder='membership upgrade password')
           button(type='sumbit' class='my-2 w-full  p-2 bg-blue-500 text-white rounded-md md:w-auto md:ml-4') Upgarde
-    if (currentUser.membership !== 'user')
     div(class='bg-white rounded-md shadow-md  p-4 flex justify-between items-center w-11/12 mb-4')
         a(href='./message/new' class='p-4 bg-blue-500 text-white rounded-md md:w-full text-center font-black text-xl ') Add message
     if messages
@@ -19,12 +18,14 @@ block content
           div(class='p-4 my-4 bg-white rounded-md shadow-xl')
             div(class='mb-4')
               p(class='bg-blue-500 p-2 rounded-md text-center font-600 text-white text-xl w-max') #{message.title} 
-            div(class='')
-              p(class='mb-4 break-all') #{message.body}
-              if (currentUser.membership !== 'user')
-                p(class='text-blue-500 text-sm text-right') #{message.author.firstName} #{message.author.lastName},#{message.date}
-              else
-                p(class='text-blue-500 text-sm text-right')  author, #{message.date}
+              div
+                p(class='mb-4 break-all') #{message.body}
+                if (currentUser.membership !== 'user')
+                  p(class='text-blue-500 text-sm text-right') #{message.author.firstName} #{message.author.lastName},#{message.date}
+                  if (currentUser.membership === 'admin')
+                    a(href=`message/${message.id}/delete`) DELETE
+                else
+                  p(class='text-blue-500 text-sm text-right')  author, #{message.date}
   else 
     if messages
     div(class='w-11/12 h-full')
