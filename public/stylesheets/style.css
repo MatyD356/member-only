@@ -31175,6 +31175,17 @@ video {
           animation: bounce 1s infinite;
 }
 
+.masonary {
+  -moz-columns: 3 200px;
+       columns: 3 200px;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+
+.flex-1-0-auto {
+  flex: 1 0 auto;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
