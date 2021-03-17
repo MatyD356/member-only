@@ -11,6 +11,9 @@ const passport = require('passport');
 const session = require('express-session')
 const initializePassport = require('./passport-config');
 const User = require('./models/User');
+const compression = require('compression');
+const helmet = require('helmet');
+
 
 var app = express();
 
@@ -30,11 +33,12 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(compression());
+app.use(helmet());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
